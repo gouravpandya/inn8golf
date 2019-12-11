@@ -1,3 +1,71 @@
-<p>
-  registration works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="secondary" padding>
+  <form [formGroup]="registration" (ngSubmit)="submit()" [password]="'password'" [confirmPassword]="'confirmPassword'">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Registration</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input formControlName="name" name="name" type="name" placeholder="Enter name"></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['name'].invalid && registration.controls['name'].touched && registration.controls['name'].errors.required">
+              Name is required</div>
+            <ion-item>
+              <ion-input formControlName="email" name="email" type="email" placeholder="Enter Email"></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['email'].invalid && registration.controls['email'].touched && registration.controls['email'].errors.required">
+              Email is required</div>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['email'].invalid && registration.controls['email'].hasError('email')">
+              Email is not valid</div>
+            <ion-item>
+              <ion-input formControlName="phone" name="phone" type="number" placeholder="Enter phone"></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['phone'].invalid && registration.controls['phone'].touched && registration.controls['phone'].errors.required">
+              Phone is required</div>
+            <ion-item>
+              <ion-input formControlName="password" name="password" type="password" placeholder="Password"></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['password'].invalid && registration.controls['password'].touched && registration.controls['password'].errors.required">
+              Phone is required</div>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['password'].invalid && registration.controls['password'].hasError('pattern')">
+              Password should be contains at least 1 lowercase, 1 uppercase alphabet, 1 numeric character & at least one
+              special character</div>
+            <ion-item>
+              <ion-input formControlName="confirmPassword" name="confirmPassword" type="password"
+                placeholder="Confirm Password"></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['confirmPassword'].invalid && registration.controls['confirmPassword'].touched && registration.controls['confirmPassword'].errors.required">
+              Confirm Password is required</div>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="registration.controls['confirmPassword'].invalid && registration.controls['confirmPassword'].errors.misMatch">
+              Password doesn't match</div>
+          </div>
+
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="registration.invalid" expand="block">Signup</ion-button>
+            <!-- <ion-button size="large" type="submit" expand="block">Signup</ion-button> -->
+          </div>
+        </ion-col>
+      </ion-row>
+      <div padding>
+        Already have an account? <a [routerLink]="['/user/login']">Login here</a>
+      </div>
+    </ion-grid>
+  </form>
+</ion-content>

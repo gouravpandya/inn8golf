@@ -1,3 +1,43 @@
-<p>
-  login works!
-</p>
+<ion-content color="secondary" padding>
+  <form [formGroup]="login" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Login</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input formControlName="email" name="email" type="email" placeholder="Enter Email" validateEmail></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="login.controls['email'].invalid && login.controls['email'].touched && login.controls['email'].errors.required">
+              Email is required</div>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="login.controls['email'].invalid && login.controls['email'].hasError('validateEmail')">
+              Email is not valid</div>
+            <ion-item>
+              <ion-input formControlName="password" name="password" type="password" placeholder="Password"></ion-input>
+            </ion-item>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="login.controls['password'].invalid && login.controls['password'].touched && login.controls['password'].errors.required">
+              password is required</div>
+            <div style="color: red; padding-top: 0.2rem"
+              *ngIf="login.controls['password'].invalid && login.controls['password'].hasError('pattern')">
+              Password should be contains at least 1 lowercase, 1 uppercase alphabet, 1 numeric character & at least one
+              special character</div>
+            <div padding>
+              <a [routerLink]="['/user/forgot-password']">Forgot Password</a>
+            </div>
+          </div>
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="login.invalid" expand="block">Login</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <div padding>
+        Don't have an account? <a [routerLink]="['/user/registration']">Sign Up</a>
+      </div>
+    </ion-grid>
+  </form>
+</ion-content>
