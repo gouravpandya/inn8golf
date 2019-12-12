@@ -1,0 +1,38 @@
+<div class="login-box">
+    <div class="login-logo">
+        <b>INN8GOLF </b>ADMIN
+    </div>
+    <div class="login-box-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+        <form [formGroup]="login">
+            <div class="form-group has-feedback">
+                <input formControlName="email" type="email" class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <div *ngIf="login.controls['email'].invalid && login.controls['email'].touched && login.controls['email'].errors.required"
+                    class="error">
+                    <span class="text-danger">Email is required</span>
+                </div>
+                <div *ngIf="login.controls['email'].invalid && login.controls['email'].hasError('email')" class="error">
+                    <span class="text-danger">Email is not valid</span>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <div *ngIf="login.controls['password'].invalid && login.controls['password'].touched && login.controls['password'].errors.required"
+                    class="error">
+                    <span class="text-danger">Password is required</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" [disabled]="login.invalid" (click)="submit()"
+                        class="btn btn-primary btn-block btn-flat">Sign In</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

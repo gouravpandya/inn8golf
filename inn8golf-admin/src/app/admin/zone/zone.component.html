@@ -1,0 +1,159 @@
+<div class="pad margin no-print">
+        <div class="callout callout-info" style="margin-bottom: 0!important;">
+          <h4><i class="fa fa-info"></i> Note:</h4>
+          All the fields marked with asterisk sign(*) are mandatory to be filled.
+        </div>
+      </div>
+<section class="content-header">
+    <h1>
+        Zone Management
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <form #zoneForm="ngForm" id="zoneForm" novalidate class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="">
+                                <label for="zoneName" class="col-sm-2 control-label">Zone Name<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="zoneName" id="zoneName"
+                                        placeholder="Zone Name" required #zoneName="ngModel"
+                                        [pattern]="whiteSpacePattern" (focusout)="checkZoneAlreadyExists()"
+                                        [(ngModel)]="zone.zoneName">
+                                    <show-errors [control]="zoneName" [name]="'Zone Name'"></show-errors>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <label class="col-sm-2 control-label">Select Level<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="level" [(ngModel)]="zone.levelId">
+                                        <ng-container *ngFor="let level of levelList">
+                                            <option [value]="level.levelId">{{level.levelName}}
+                                            </option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <label class="col-sm-2 control-label">Associate device</label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" name="device" [(ngModel)]="zone.deviceId">
+                                        <option [value]="1">device 1</option>
+                                        <option [value]="2">device 2</option>
+                                        <option [value]="3">device 3</option>
+                                        <option [value]="4">device 4</option>
+                                        <option [value]="5">device 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <label class="col-sm-2 control-label">Generate Floor Plan</label>
+                                <div class="toolbar col-sm-4">
+                                    <button class="btn btn-primary" (click)="layoutService.addItem();">Add
+                                        Workspace</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <gridster [options]="options">
+                                    <gridster-item *ngFor="let item of layout;let i = index" [item]="item">
+                                        <h1>{{item.workSpaceName}}</h1>
+                                        <div class="grid-icon">
+                                            <i class="fa fa-trash" aria-hidden="true"
+                                                (click)="layoutService.deleteItem(item.workSpaceId)"></i>
+                                            <i class="fa fa-pencil" aria-hidden="true"
+                                                (click)="setCurrentWorkspaceIndex(i)" data-toggle="modal"
+                                                data-target="#modal-info"></i>
+                                        </div>
+                                    </gridster-item>
+                                </gridster>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="button" [disabled]="zoneForm.invalid || zone.levelId < 1" (click)="save();" class="btn btn-primary">Submit</button>
+                        <button (click)="onReset()" class="btn btn-info">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Zone</h3>
+                </div>
+                <div class="box-body table-responsive">
+
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                        class="table table-bordered table-striped table-level">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Zone Name</th>
+                                <th>Level Name</th>
+                                <th>Building Name</th>
+                                <th>Device Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let zone of zoneList; let i=index ">
+                                <td>{{i+1}}</td>
+                                <td>{{zone.zoneName}}</td>
+                                <td>{{zone.levelName}}</td>
+                                <td>{{zone.buildingName}}</td>
+                                <td>{{zone.deviceName}}</td>
+                                <td>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"
+                                        (click)="getById(zone.zoneId)"></i>
+                                    <i class="fa fa-trash" aria-hidden="true" (click)="delete(zone.zoneId)"></i>
+                                </td>
+                            </tr>
+                            <tr *ngIf="zoneList?.length < 1">
+                                <td colspan="6">No record found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-info fade" id="modal-info" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="clearWorkspaceName()">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Enter Workspace Name</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" [(ngModel)]="workspaceName"
+                        placeholder="Enter workspace name here">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal"
+                        (click)="clearWorkspaceName()">Close</button>
+                    <button type="button" class="btn btn-outline" data-dismiss="modal"
+                        (click)="updateWorkspaceName()">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</section>

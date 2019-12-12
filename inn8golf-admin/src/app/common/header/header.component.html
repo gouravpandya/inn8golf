@@ -1,0 +1,74 @@
+<header class="main-header">
+  <!-- Logo -->
+  <a href="index2.html" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>EDGE</b>Evexia</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>INN8GOLF </b>ADMIN</span>
+  </a>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top">
+    <div class="nav-top-custom">
+
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+
+      <div class="col-md-12">
+        <div class="navbar-custom-menu">
+          <div class="row">
+
+            <div class="col-sm-4">
+              <div class="dropdown  user user-menu">
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                    <label>Portfolio</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-control">
+                      <option>option 1</option>
+                      <option>option 2</option>
+                      <option>option 3</option>
+                      <option>option 4</option>
+                      <option>option 5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="dropdown  user user-menu">
+                <div class="row">
+                  <div class="col-md-4 text-right">
+                    <label>Site</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-control" (change)="setSite()" [(ngModel)]="siteId" >
+                        <option  [value]="0"  >--Select Site --
+                          </option>
+                      <ng-container *ngFor="let site of siteList">
+                        <option [value]="site.id">{{site.name}}
+                        </option>
+                      </ng-container>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 text-right">
+
+              <span class="user-name">Alexander Pierce<span class="mobile-user">AP</span></span>
+              <a href="#" class="sign-btn">Sign out<span><i class="fa fa-sign-out" aria-hidden="true"></i></span></a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+

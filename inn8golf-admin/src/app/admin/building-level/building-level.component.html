@@ -1,0 +1,137 @@
+<div class="pad margin no-print">
+    <div class="callout callout-info" style="margin-bottom: 0!important;">
+        <h4><i class="fa fa-info"></i> Note:</h4>
+        All the fields marked with asterisk sign(*) are mandatory to be filled.
+    </div>
+</div>
+<section class="content-header">
+    <h1>
+        Building Management
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                </div>
+                <form #buildingLevelForm="ngForm" id="buildingLevelForm" novalidate class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="buildingName" class="col-sm-2 control-label">Building Name<span
+                                    class="text-danger">*</span></label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="buildingName" id="buildingName"
+                                    placeholder="Building Name" required #buildingName="ngModel"
+                                    [pattern]="whiteSpacePattern" (focusout)="checkBuildingAlreadyExists()"
+                                    [(ngModel)]="building.buildingName">
+                                <show-errors [control]="buildingName" [name]="'Building Name'"></show-errors>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="levelNo" class="col-sm-2 control-label">Level Number<span
+                                    class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="levelNo" id="levelNo"
+                                    placeholder="Level Number" required #levelNo="ngModel" [pattern]="numberPatter"
+                                    (blur)="checkValidInput()" maxlength="3" [(ngModel)]="building.levelNo"
+                                    [disabled]="IsActive">
+                                <show-errors [control]="levelNo" [name]="'Level Number'"></show-errors>
+                                <div *ngIf="!IsValid " class="error">
+                                    <span class="text-danger">level number must be greater than 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button (click)="onSubmit()" [disabled]="buildingLevelForm.invalid"
+                            class="btn btn-info">Submit</button>
+                        <button (click)="onReset()" class="btn btn-info">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Levels</h3>
+                </div>
+                <div class="box-body level-fields">
+                    <div class="input-group input-group-lg">
+                        <div class="row">
+                            <div class="col-md-6" *ngFor="let level of building.levels; let i=index">
+                                <div class="form-group">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" value="level.levelName"
+                                            [(ngModel)]="level.levelName">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-box-tool"
+                                                (click)="deleteLevel(level.levelId)"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Building</h3>
+                </div>
+                <div class="box-body table-responsive">
+                    <table id="tblBuilding" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                        class="table table-bordered table-striped table-level">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Building</th>
+                                <th>Level Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let building of buildingList; let i=index ">
+                                <td>{{i+1}}</td>
+                                <td>{{building.buildingName}}</td>
+                                <td>
+                                    <div class="level-list">
+                                        <span *ngFor="let level of building.levels" class="level-span">
+                                            {{level.levelName}}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"
+                                        (click)="getById(building.buildingId)"></i>
+                                    <i class="fa fa-trash" aria-hidden="true" (click)="delete(building.buildingId)"></i>
+                                </td>
+                            </tr>
+                            <tr *ngIf="buildingList?.length < 1">
+                                <td colspan="4">No record found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#tblBuilding').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>

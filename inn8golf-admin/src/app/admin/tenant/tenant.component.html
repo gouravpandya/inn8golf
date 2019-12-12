@@ -1,0 +1,127 @@
+<section class="content-header">
+    <h1>
+        Tenant Management
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                </div>
+                <form #TenantForm="ngForm" id="TenantForm" novalidate class="form-horizontal">
+                    <div class="box-body">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tenantName" class="col-sm-3 control-label">Tenant Name<span
+                                    class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="tenantName" id="tenantName"
+                                    placeholder="Tenant Name" required #tenantName="ngModel"
+                                    [pattern]="whiteSpacePattern" (focusout)="checkTenantAlreadyExists()"
+                                    [(ngModel)]="tenant.tenantName">
+                                <show-errors [control]="tenantName" [name]="'Tenant Name'"></show-errors>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="building" class="col-sm-3 control-label">Select Building<span
+                                    class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <ng-multiselect-dropdown [placeholder]="'Select Building'" [data]="buildingList"
+                                    name="buildingIds" [(ngModel)]="selectedItems" [settings]="buildingDropdownSettings"
+                                    (onSelect)="onBuildingItemSelect($event)"
+                                    (onSelectAll)="onBuildingAllItemSelect($event)"
+                                    (onDeSelect)="onBuildingItemDeSelect($event)"
+                                    (onDeSelectAll)="onBuildingAllItemDeSelect($event)">
+                                </ng-multiselect-dropdown>
+                                <show-errors [control]="levelNo" [name]="'Level Number'"></show-errors>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="levelNo" class="col-sm-3 control-label">Select Level<span
+                                    class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <div *ngFor="let building of selectedBuildings">
+                                    <input type="checkbox" value="{{building.buildingId}}"
+                                        (change)="checkAllBuildingLevels(building.buildingId,$event)" />{{building.buildingName}}
+                                    <div *ngFor="let level of building.levels">
+                                        <ng-container *ngIf="level.isChecked">
+                                            <input type="checkbox" checked value="{{level.levelId}}"
+                                                (change)="onLevelItemSelect($event,level.levelId)" />{{level.levelName}}
+                                        </ng-container>
+                                        <ng-container *ngIf="!level.isChecked">
+                                            <input type="checkbox" value="{{level.levelId}}"
+                                                (change)="onLevelItemSelect($event,level.levelId)" />{{level.levelName}}
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <show-errors [control]="levelNo" [name]="'Level Number'"></show-errors>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button (click)="onSubmit()" [disabled]="TenantForm.invalid || tenant.levelList < 1"
+                            class="btn btn-info">Submit</button>
+                        <button (click)="onReset()" class="btn btn-info">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Tenant</h3>
+                    </div>
+                    <div class="box-body table-responsive" >
+                        <table id="tblTenant" class="table table-bordered table-striped table-level">
+                            <thead>
+                                <tr>
+                                    <th>S.No.</th>
+                                    <th>Tenant</th>
+                                    <th>Level Name(Building Name)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tenant of tenantList; let i=index ">
+                                    <td>{{i+1}}</td>
+                                    <td>{{tenant.tenantName}}</td>
+                                    <td>
+                                        <div class="level-list">
+                                            <span *ngFor="let level of tenant.levels" class="level-span">
+                                                {{level.levelName}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"
+                                            (click)="getById(tenant.tenantId)"></i>
+                                        <i class="fa fa-trash" aria-hidden="true" (click)="delete(tenant.tenantId)"></i>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="tenantList?.length < 1">
+                                    <td colspan="4">No record found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+</section>
+
+<script>
+    $(function () {
+        $('#tblTenant').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>
