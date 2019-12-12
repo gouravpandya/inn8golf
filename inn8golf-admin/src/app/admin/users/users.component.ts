@@ -38,7 +38,6 @@ export class UsersComponent implements OnInit, OnDestroy {
       pageLength: 5,
       paging: true,
       searching: true,
-
     };
     this.userList = [
       { name: 'sad', email: 'asdasd' },
