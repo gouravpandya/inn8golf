@@ -8,6 +8,7 @@ import { TenantComponent } from './tenant/tenant.component';
 import { DeviceComponent } from './device/device.component';
 import { EmployeeAttendanceComponent } from './employee/employee-attendance/employee-attendance.component';
 import { AlertConfigurationComponent } from './alert-configuration/alert-configuration.component';
+import { ErrorComponent } from '../common/error/error.component';
 
 
 const routes: Routes = [
@@ -19,9 +20,17 @@ const routes: Routes = [
       { path: 'tenant', component: TenantComponent },
       { path: 'device', component: DeviceComponent },
       { path: 'employee-attendance', component: EmployeeAttendanceComponent },
-      { path: 'alertConfiguration', component: AlertConfigurationComponent}
+      { path: 'alertConfiguration', component: AlertConfigurationComponent},
+      {
+        path: '**',
+        component: ErrorComponent
+      }
     ]
-  }
+  },
+  {
+    path: '**',
+    component: ErrorComponent
+  } 
 ];
 
 @NgModule({

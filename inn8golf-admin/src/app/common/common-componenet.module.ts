@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ShowErrorsComponent } from './show-error/show-errors.component';
 import { FormsModule } from '@angular/forms';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         HeaderComponent,
         SidebarComponent,
         FooterComponent,
-        ShowErrorsComponent
+        ShowErrorsComponent,
+        ErrorComponent
     ],
     imports: [
         CommonModule,
@@ -23,6 +25,6 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         ProgressSpinnerModule
 
     ],
-    exports: [HeaderComponent, SidebarComponent, FooterComponent, ShowErrorsComponent]
+    exports: [HeaderComponent, SidebarComponent, FooterComponent, ShowErrorsComponent, ErrorComponent]
 })
 export class CommonComponentModule { }
