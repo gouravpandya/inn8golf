@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -11,20 +11,21 @@ import { User } from './users.model';
   styleUrls: ['./users.component.css']
 })
 
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
   userList: User[] = [];
   user: User;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<User> = new Subject();
+  modalMessage: string;
+  modalTitle: string;
 
-  constructor(private userService: UserService,
-    private router: Router) {
+  constructor(private userService: UserService, private router: Router) {
     this.user = new User();
   }
 
   ngOnInit() {
     this.initialize();
-    
+
   }
 
   addUser(): void {
@@ -40,29 +41,40 @@ export class UsersComponent implements OnInit {
 
     };
     this.userList = [
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-      {name: "sad", email:'asdasd'},
-    ]
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+      { name: 'sad', email: 'asdasd' },
+    ];
     this.dtTrigger.next();
 
+  }
+
+  deleteUser(): void {
+    this.modalMessage = 'Are you sure you want to delete user ?';
+    this.modalTitle = 'Confirmation';
+  }
+
+  modalClose(): void {
+  }
+
+  disableUser(): void {
   }
 
   private handleError(errorCode: number): void {

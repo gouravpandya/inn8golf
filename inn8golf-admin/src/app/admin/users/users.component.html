@@ -33,11 +33,11 @@
                                         <button type="button" class="btn btn-info" data-widget="Edit User"
                                             data-toggle="tooltip" title="Edit User" routerLink="/admin/user/1"><i
                                                 class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-warning" data-widget="Active/Inactive"
-                                            data-toggle="tooltip" title="Active/Inactive" (click)="disableUser()"><i
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-default"  data-widget="Active/Inactive"
+                                             title="Active/Inactive" (click)="disableUser()"><i
                                                 class="fa fa-activate"></i></button>
-                                        <button type="button" class="btn btn-danger" data-widget="Delete"
-                                            data-toggle="tooltip" title="Delete" (click)="deleteUser()"><i
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default" data-widget="Delete"
+                                             title="Delete" (click)="deleteUser()"><i
                                                 class="fa fa-trash"></i></button>
                                     </div>
                                 </td>
@@ -52,3 +52,25 @@
         </div>
     </div>
 </section>
+
+
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Default Modal</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer center">
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>

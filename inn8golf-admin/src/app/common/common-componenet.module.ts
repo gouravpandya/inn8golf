@@ -6,7 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ShowErrorsComponent } from './show-error/show-errors.component';
 import { FormsModule } from '@angular/forms';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ErrorComponent } from './error/error.component';
 
 
@@ -23,8 +23,11 @@ import { ErrorComponent } from './error/error.component';
         RouterModule,
         FormsModule,
         ProgressSpinnerModule
-
     ],
-    exports: [HeaderComponent, SidebarComponent, FooterComponent, ShowErrorsComponent, ErrorComponent]
+    exports: [HeaderComponent,
+        SidebarComponent,
+        FooterComponent,
+        ShowErrorsComponent,
+        ErrorComponent]
 })
 export class CommonComponentModule { }

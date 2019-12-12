@@ -63,6 +63,5 @@ import { AddUpdateComponent } from './users/add-update/add-update.component';
     EmployeeService,
     EmployeeAttendanceService
   ]
- 
 })
 export class AdminModule { }
