@@ -1,0 +1,54 @@
+<section class="content-header">
+    <h1>
+        Users Management
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-primary margin" routerLink="/admin/user">Add User</button>
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Users</h3>
+                </div>
+                <div class="box-body table-responsive">
+                    <table id="tblBuilding" datatable [dtOptions]="dtOptions" 
+                        class="table table-bordered table-striped table-level">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of userList; let i=index ">
+                                <td>{{i+1}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info" data-widget="Edit User"
+                                            data-toggle="tooltip" title="Edit User" routerLink="/admin/user/1"><i
+                                                class="fa fa-pencil"></i></button>
+                                        <button type="button" class="btn btn-warning" data-widget="Active/Inactive"
+                                            data-toggle="tooltip" title="Active/Inactive" (click)="disableUser()"><i
+                                                class="fa fa-activate"></i></button>
+                                        <button type="button" class="btn btn-danger" data-widget="Delete"
+                                            data-toggle="tooltip" title="Delete" (click)="deleteUser()"><i
+                                                class="fa fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr *ngIf="userList?.length < 1">
+                                <td colspan="6">No record found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
