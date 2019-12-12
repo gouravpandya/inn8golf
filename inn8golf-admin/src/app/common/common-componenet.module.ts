@@ -14,14 +14,13 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         HeaderComponent,
         SidebarComponent,
         FooterComponent,
-        ShowErrorsComponent
+        ShowErrorsComponent,
     ],
     imports: [
         CommonModule,
         RouterModule,
         FormsModule,
         ProgressSpinnerModule
-
     ],
     exports: [HeaderComponent, SidebarComponent, FooterComponent, ShowErrorsComponent]
 })
