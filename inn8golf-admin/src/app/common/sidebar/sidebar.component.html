@@ -1,55 +1,22 @@
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-
-
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
-                <a href="#">
+            <li class="treeview" routerLinkActive="active">
+                <a href="javascript:;" [routerLink]="['/admin/dashboard']">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-
-                </a>
-
-            </li>
-            <li class="header">Setup</li>
-            <li>
-                <a href="javascript:;" [routerLink]="['/admin/building-level']">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Building and Level </span>
                 </a>
             </li>
-            <li>
-                <a href="javascript:;" [routerLink]="['/admin/tenant']" >
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Tenant </span>
+            <li class="treeview" routerLinkActive="active">
+                <a href="javascript:;" [routerLink]="['/admin/users']">
+                    <i class="fa fa-user"></i> <span>Users</span>
                 </a>
             </li>
-            <li>
-                <a href="javascript:;" [routerLink]="['/admin/zone']">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Zone </span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" [routerLink]="['/admin/device']" >
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Device </span>
-                </a>
-            </li>
-            <li>
-                <a href="pages/widgets.html">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Role </span>
-                </a>
-            </li>
-            <li class="header">Configuration</li>
-            <li>
-                <a href="javascript:;" [routerLink]="['/admin/alertConfiguration']">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Alert</span>
-                </a>
-            </li>
-            <li class="header">Employee Management</li>
-            <li>
-                <a href="javascript:;" [routerLink]="['/admin/employee-attendance']" >
-                    <i class="fa fa-circle-o text-aqua"></i> <span>Attendance</span>
+            <li class="treeview" routerLinkActive="active">
+                <a href="javascript:;" [routerLink]="['/admin/courses']">
+                    <i class="fa fa-golf"></i> <span>Courses</span>
                 </a>
             </li>
         </ul>

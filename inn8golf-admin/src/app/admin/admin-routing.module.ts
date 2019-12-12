@@ -9,6 +9,9 @@ import { DeviceComponent } from './device/device.component';
 import { EmployeeAttendanceComponent } from './employee/employee-attendance/employee-attendance.component';
 import { AlertConfigurationComponent } from './alert-configuration/alert-configuration.component';
 import { ErrorComponent } from '../common/error/error.component';
+import { UsersComponent } from './users/users.component';
+import { CoursesComponent } from './courses/courses.component';
+import { AddUpdateComponent } from './users/add-update/add-update.component';
 
 
 const routes: Routes = [
@@ -21,16 +24,17 @@ const routes: Routes = [
       { path: 'device', component: DeviceComponent },
       { path: 'employee-attendance', component: EmployeeAttendanceComponent },
       { path: 'alertConfiguration', component: AlertConfigurationComponent},
-      {
-        path: '**',
-        component: ErrorComponent
-      }
+      { path: 'users', component: UsersComponent},
+      { path: 'user', component: AddUpdateComponent},
+      { path: 'user/:userId', component: AddUpdateComponent},
+      { path: 'courses', component: CoursesComponent},
+      { path: '**', component: ErrorComponent},
     ]
   },
   {
     path: '**',
     component: ErrorComponent
-  } 
+  }
 ];
 
 @NgModule({

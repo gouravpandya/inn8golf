@@ -24,6 +24,9 @@ import { AlertConfigurationComponent } from './alert-configuration/alert-configu
 import { EmployeeService } from './employee/employee.service';
 import { EmployeeAttendanceService } from './employee/employee-attendance/employee-attendance.service';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { UsersComponent } from './users/users.component';
+import { CoursesComponent } from './courses/courses.component';
+import { AddUpdateComponent } from './users/add-update/add-update.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     TenantComponent,
     DeviceComponent,
     EmployeeAttendanceComponent,
-    AlertConfigurationComponent
+    AlertConfigurationComponent,
+    UsersComponent,
+    CoursesComponent,
+    AddUpdateComponent
   ],
   imports: [
     CommonModule,
