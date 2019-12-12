@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ErrorComponent } from './error/error.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Interceptor } from './common/http.intercepter';
 import { HttpErrorInterceptor } from './common/http-error.interceptor';
@@ -15,8 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    ErrorComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

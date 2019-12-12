@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { ErrorComponent } from './error/error.component';
+import { ErrorComponent } from './common/error/error.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren: './admin/admin.module#AdminModule'
   },
   {
-    path: 'error',
+    path: '**',
     component: ErrorComponent
   },
 ];
