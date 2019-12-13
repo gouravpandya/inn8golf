@@ -12,3 +12,15 @@
   .example-modal .modal {
     background: transparent !important;
   }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    background: none !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding: initial !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    border: 1px solid #FFF !important;
+  }
