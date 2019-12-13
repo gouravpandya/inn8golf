@@ -24,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddUpdateCourseComponent } from './courses/add-update-course/add-update-course.component';
 import { CourseGroupComponent } from './courses/course-group/course-group.component';
 import { CourseEventComponent } from './courses/course-event/course-event.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { CourseEventComponent } from './courses/course-event/course-event.compon
     ProfileComponent,
     AddUpdateCourseComponent,
     CourseGroupComponent,
-    CourseEventComponent
+    CourseEventComponent,
   ],
   imports: [
     CommonModule,
@@ -52,8 +53,8 @@ import { CourseEventComponent } from './courses/course-event/course-event.compon
     DataTablesModule,
     CalendarModule,
     ProgressSpinnerModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    AngularMultiSelectModule
   ],
   providers: []
 })

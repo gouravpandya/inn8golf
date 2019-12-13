@@ -10,6 +10,7 @@ import { HttpErrorInterceptor } from './common/http-error.interceptor';
 import { CommonComponentModule } from './common/common-componenet.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonComponentModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularMultiSelectModule
     ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

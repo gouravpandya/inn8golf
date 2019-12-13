@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.11",
     "angular-datatables": "^8.0.0",
     "angular-gridster2": "^7.1.0",
+    "angular2-multiselect-dropdown": "^4.6.3",
     "angular2-uuid": "^1.1.1",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",

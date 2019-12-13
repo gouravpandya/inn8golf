@@ -31,3 +31,32 @@
     vertical-align: top;
     font-size: 14px;
 }
+
+.c-btn {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.selected-list .c-list .c-token {
+  background: #0079fe;
+}
+
+.selected-list .c-list .c-token .c-label {
+  color: #fff;
+}
+
+.list-area {
+  border: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 0 1px 5px #959595;
+}
+
+.pure-checkbox input[type=checkbox]+label:before {
+  color: #0079fe;
+  border: 1px solid #0079fe;
+}
+
+.selected-list .c-btn{
+  font-size: 14px;
+}
