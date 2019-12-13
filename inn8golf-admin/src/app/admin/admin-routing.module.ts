@@ -8,6 +8,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { AddUpdateComponent } from './users/add-update/add-update.component';
 import { AddUpdateAdminComponent } from './add-update-admin/add-update-admin.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { AddUpdateCourseComponent } from './courses/add-update-course/add-update-course.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,8 @@ const routes: Routes = [
       { path: 'add-admin', component: AddUpdateAdminComponent},
       { path: 'update-admin/:id', component: AddUpdateAdminComponent},
       { path: 'courses', component: CoursesComponent},
+      { path: 'add-course', component: AddUpdateCourseComponent},
+      { path: 'update-course/:id', component: AddUpdateCourseComponent},
       { path: '**', component: ErrorComponent},
     ]
   },

@@ -6,8 +6,6 @@ import { DragDropService } from './drag-drop.service';
 import { Zone } from './zone.model';
 import { ZoneService } from './zone.service';
 import Swal from 'sweetalert2';
-import { BuildingLevelService } from '../building-level/building-level.service';
-import { Level } from '../building-level/building-level.model';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 
@@ -22,7 +20,7 @@ export class ZoneComponent implements OnInit, AfterViewInit {
 
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<Zone> = new Subject();
-  levelList: Level[] = [];
+  // levelList: Level[] = [];
   zone: Zone;
   zoneList: Zone[] = [];
   workspaceName: string = '';
@@ -37,7 +35,7 @@ export class ZoneComponent implements OnInit, AfterViewInit {
   }
 
 
-  constructor(private buildingServie: BuildingLevelService, public layoutService: DragDropService, private router: Router, private zoneService: ZoneService) {
+  constructor(public layoutService: DragDropService, private router: Router, private zoneService: ZoneService) {
     this.zone = new Zone();
   }
 
@@ -129,10 +127,10 @@ export class ZoneComponent implements OnInit, AfterViewInit {
 
     this.zoneService.get('123456').subscribe((zoneResponse) => {
       if (zoneResponse.status === 200 && !zoneResponse.body.didError) {
-        if(recreate){
+        if (recreate) {
           this.rerender();
         }
-        else{
+        else {
           this.dtTrigger.next();
         }
         this.zoneList = zoneResponse.body.model;
@@ -146,11 +144,11 @@ export class ZoneComponent implements OnInit, AfterViewInit {
     });
   }
   private getAllLevel(siteRefNo: string): void {
-    this.buildingServie.getAllLevel(siteRefNo).subscribe((levelResponse) => {
-      if (levelResponse.status === 200 && !levelResponse.body.didError) {
-        this.levelList = levelResponse.body.model;
-      }
-    });
+    // this.buildingServie.getAllLevel(siteRefNo).subscribe((levelResponse) => {
+    //   if (levelResponse.status === 200 && !levelResponse.body.didError) {
+    //     this.levelList = levelResponse.body.model;
+    //   }
+    // });
   }
 
   getById(zoneId: number): void {

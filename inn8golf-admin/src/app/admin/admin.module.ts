@@ -11,40 +11,29 @@ import { CommonComponentModule } from '../common/common-componenet.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
 import { GridsterModule } from 'angular-gridster2';
-import { TenantComponent } from './tenant/tenant.component';
-import { DeviceComponent } from './device/device.component';
-import { EmployeeAttendanceComponent } from './employee/employee-attendance/employee-attendance.component';
-import { BuildingLevelComponent } from './building-level/building-level.component';
-import { BuildingLevelService } from './building-level/building-level.service';
 import { HttpClientModule } from '@angular/common/http';
-import { TenantService } from './tenant/tenant.service';
 import { ZoneService } from './zone/zone.service';
-import { DeviceService } from './device/device.service';
 import { AlertConfigurationComponent } from './alert-configuration/alert-configuration.component';
-import { EmployeeService } from './employee/employee.service';
-import { EmployeeAttendanceService } from './employee/employee-attendance/employee-attendance.service';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { UsersComponent } from './users/users.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AddUpdateComponent } from './users/add-update/add-update.component';
 import { AddUpdateAdminComponent } from './add-update-admin/add-update-admin.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { AddUpdateCourseComponent } from './courses/add-update-course/add-update-course.component';
 
 @NgModule({
   declarations: [
     ZoneComponent,
-    BuildingLevelComponent,
     AdminComponent,
     DashboardComponent,
-    TenantComponent,
-    DeviceComponent,
-    EmployeeAttendanceComponent,
     AlertConfigurationComponent,
     UsersComponent,
     CoursesComponent,
     AddUpdateComponent,
     AddUpdateAdminComponent,
-    AdminListComponent
+    AdminListComponent,
+    AddUpdateCourseComponent
   ],
   imports: [
     CommonModule,
@@ -60,13 +49,6 @@ import { AdminListComponent } from './admin-list/admin-list.component';
     ReactiveFormsModule
 
   ],
-  providers: [
-    BuildingLevelService,
-    DeviceService,
-    TenantService,
-    ZoneService,
-    EmployeeService,
-    EmployeeAttendanceService
-  ]
+  providers: []
 })
 export class AdminModule { }
