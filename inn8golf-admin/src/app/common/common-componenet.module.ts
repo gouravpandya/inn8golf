@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ErrorComponent } from './error/error.component';
 import { EmailValidatorDirective } from './directives/validate-email.directive';
+import { RequiredLabelDirective } from './directives/required-label';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { EmailValidatorDirective } from './directives/validate-email.directive';
         FooterComponent,
         ShowErrorsComponent,
         ErrorComponent,
-        EmailValidatorDirective
+        EmailValidatorDirective,
+        RequiredLabelDirective
     ],
     imports: [
         CommonModule,
@@ -31,6 +33,8 @@ import { EmailValidatorDirective } from './directives/validate-email.directive';
         FooterComponent,
         ShowErrorsComponent,
         ErrorComponent,
-        EmailValidatorDirective]
+        EmailValidatorDirective,
+        RequiredLabelDirective
+    ]
 })
 export class CommonComponentModule { }
