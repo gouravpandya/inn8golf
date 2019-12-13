@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent},
       { path: 'add-user', component: AddUpdateComponent},
       { path: 'update-user/:id', component: AddUpdateComponent},
-      { path: 'admin', component: AdminListComponent},
+      { path: 'administration', component: AdminListComponent},
       { path: 'add-admin', component: AddUpdateAdminComponent},
       { path: 'update-admin/:id', component: AddUpdateAdminComponent},
       { path: 'courses', component: CoursesComponent},
