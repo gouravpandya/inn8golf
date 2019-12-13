@@ -22,6 +22,8 @@ import { AddUpdateAdminComponent } from './admin-list/add-update-admin/add-updat
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddUpdateCourseComponent } from './courses/add-update-course/add-update-course.component';
+import { CourseGroupComponent } from './courses/course-group/course-group.component';
+import { CourseEventComponent } from './courses/course-event/course-event.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AddUpdateCourseComponent } from './courses/add-update-course/add-update
     AddUpdateAdminComponent,
     AdminListComponent,
     ProfileComponent,
-    AddUpdateCourseComponent
+    AddUpdateCourseComponent,
+    CourseGroupComponent,
+    CourseEventComponent
   ],
   imports: [
     CommonModule,

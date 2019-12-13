@@ -1,0 +1,73 @@
+<section class="content-header">
+    <h1>
+        Course Group
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Course Group</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="">
+                                <label class="col-sm-2 control-label">Select Course</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" name="course" (change)="selectedCourse()"
+                                        [(ngModel)]="courseGroup.course">
+                                        <option [value]="">Select Course</option>
+                                        <option [value]="1">device 1</option>
+                                        <option [value]="2">device 2</option>
+                                        <option [value]="3">device 3</option>
+                                        <option [value]="4">device 4</option>
+                                        <option [value]="5">device 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="courseGroup?.course">
+                            <div class="form-group">
+                                <label for="groupName" class="col-sm-2 control-label">Group Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="groupName" name="groupName"
+                                        [(ngModel)]="courseGroup.groupName" placeholder="Group Name">
+                                    <div
+                                        *ngIf="user.controls['groupName'].invalid && user.controls['groupName'].touched && user.controls['groupName'].errors.required">
+                                        <span class="text-danger">Group Name is required</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="">
+                                    <label class="col-sm-2 control-label">Select Member</label>
+                                    <div class="col-sm-6">
+                                        <select multiple class="form-control" name="course" (change)="selectedCourse()"
+                                            [(ngModel)]="courseGroup.courseMember">
+                                            <option [value]="">Select Member</option>
+                                            <option [value]="1">device 1</option>
+                                            <option [value]="2">device 2</option>
+                                            <option [value]="3">device 3</option>
+                                            <option [value]="4">device 4</option>
+                                            <option [value]="5">device 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</section>

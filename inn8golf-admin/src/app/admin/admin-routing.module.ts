@@ -10,6 +10,8 @@ import { AddUpdateAdminComponent } from './admin-list/add-update-admin/add-updat
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddUpdateCourseComponent } from './courses/add-update-course/add-update-course.component';
+import { CourseEventComponent } from './courses/course-event/course-event.component';
+import { CourseGroupComponent } from './courses/course-group/course-group.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,8 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent},
       { path: 'add-course', component: AddUpdateCourseComponent},
       { path: 'update-course/:id', component: AddUpdateCourseComponent},
+      { path: 'course-groups', component: CourseGroupComponent},
+      { path: 'course-events', component: CourseEventComponent},
       { path: '**', component: ErrorComponent},
     ]
   },
