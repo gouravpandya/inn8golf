@@ -19,8 +19,9 @@
               <div class="col-sm-10">
                 <input type="text" formControlName="name" class="form-control" id="Name" placeholder="Name">
                 <div
-                  *ngIf="user.controls['name'].invalid && user.controls['name'].touched && user.controls['name'].errors.required">
-                  <span class="text-danger">Name is required</span>
+                  *ngIf="user.controls['name'].invalid && (user.controls['name'].touched || user.controls['name'].dirty)">
+                  <span class="text-danger" *ngIf="user.controls['name'].errors.required">Name is
+                    required</span>
                 </div>
               </div>
             </div>
@@ -30,8 +31,10 @@
               <div class="col-sm-10">
                 <input type="number" formControlName="phone" class="form-control" id="phone" placeholder="phone">
                 <div
-                  *ngIf="user.controls['phone'].invalid && user.controls['phone'].touched && user.controls['phone'].errors.required">
-                  <span class="text-danger">Phone is required</span>
+                  *ngIf="user.controls['phone'].invalid && (user.controls['phone'].touched || user.controls['phone'].dirty)">
+                  <span class="text-danger" *ngIf="user.controls['phone'].errors.required">Phone
+                    is
+                    required</span>
                 </div>
               </div>
             </div>
@@ -39,31 +42,35 @@
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" formControlName="email" class="form-control" id="inputEmail3" placeholder="Email" validateEmail>
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email"
+                  validateEmail>
                 <div
-                  *ngIf="user.controls['email'].invalid && user.controls['email'].touched && user.controls['email'].errors.required">
-                  <span class="text-danger">Email is required</span>
+                  *ngIf="user.controls['email'].invalid && (user.controls['email'].touched || user.controls['email'].dirty)">
+                  <span class="text-danger" *ngIf="user.controls['email'].errors.required">Email
+                    is
+                    required</span>
+                  <span class="text-danger" *ngIf="user.controls['email'].hasError('validateEmail')">Email is not
+                    valid</span>
                 </div>
-                <div 
-                *ngIf="user.controls['email'].invalid && user.controls['email'].hasError('validateEmail')">
-                <span class="text-danger">Email is not valid</span>
-              </div>
               </div>
             </div>
 
             <div class="form-group">
               <label for="password" class="col-sm-2 control-label">Password</label>
               <div class="col-sm-10">
-                <input type="password" formControlName="password" class="form-control" id="inputPassword3"
+                <input type="password" formControlName="password" class="form-control" id="password"
                   placeholder="Password">
                 <div
-                  *ngIf="user.controls['password'].invalid && user.controls['password'].touched && user.controls['password'].errors.required">
-                  <span class="text-danger">Password is required</span>
+                  *ngIf="user.controls['password'].errors && (user.controls['password']?.touched || user.controls['password']?.dirty)">
+                  <span class="text-danger" *ngIf="user.controls['password'].errors?.required">
+                    Password is
+                    required</span>
+                  <span class="text-danger" *ngIf="user.controls['password']?.hasError('pattern')">
+                    Password should be contains at least 1
+                    lowercase, 1
+                    uppercase alphabet, 1 numeric character & at least one
+                    special character</span>
                 </div>
-                 <div
-                *ngIf="user.controls['password'].invalid && user.controls['password'].hasError('pattern')">
-                <span class="text-danger">   Password should be contains at least 1 lowercase, 1 uppercase alphabet, 1 numeric character & at least one
-                special character</span></div>
               </div>
             </div>
 
@@ -71,21 +78,22 @@
               <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
               <div class="col-sm-10">
                 <input type="password" formControlName="confirmPassword" class="form-control" id="Confirm"
-                  placeholder="Password">
+                  placeholder="Confirm Password">
                 <div
-                  *ngIf="user.controls['confirmPassword'].invalid && user.controls['confirmPassword'].touched && user.controls['confirmPassword'].errors.required">
-                  <span class="text-danger">Confirm password is required</span>
+                  *ngIf="user.controls['confirmPassword'].errors && (user.controls['confirmPassword']?.touched || user.controls['confirmPassword']?.dirty)">
+                  <span class="text-danger" *ngIf="user.controls['confirmPassword'].errors?.required">Confirm
+                    password is required</span>
+                  <span class="text-danger" *ngIf="user.controls['confirmPassword'].errors?.mustMatch">Password
+                    doesn't match</span>
                 </div>
-                <div
-                *ngIf="user.controls['confirmPassword'].invalid && user.controls['confirmPassword'].errors.misMatch">
-                <span class="text-danger">Password doesn't match</span></div>
               </div>
             </div>
 
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-default pull-right" routerLink="/admin/users">Cancel</button>
-            <button type="submit" class="btn btn-info pull-right" [disabled]="user.invalid" (click)="addUser()">{{userId ? 'Update' : 'Add'}} </button>
+            <button type="submit" class="btn btn-info pull-right" [disabled]="user.invalid"
+              (click)="addUser()">{{userId ? 'Update' : 'Add'}} </button>
           </div>
         </form>
       </div>
