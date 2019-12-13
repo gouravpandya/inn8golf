@@ -8,7 +8,6 @@ import { ShowErrorsComponent } from './show-error/show-errors.component';
 import { FormsModule } from '@angular/forms';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ErrorComponent } from './error/error.component';
-import { PasswordConfirmDirective } from './directives/password-confirm.directive';
 import { EmailValidatorDirective } from './directives/validate-email.directive';
 
 
@@ -19,7 +18,6 @@ import { EmailValidatorDirective } from './directives/validate-email.directive';
         FooterComponent,
         ShowErrorsComponent,
         ErrorComponent,
-        PasswordConfirmDirective,
         EmailValidatorDirective
     ],
     imports: [
@@ -33,7 +31,6 @@ import { EmailValidatorDirective } from './directives/validate-email.directive';
         FooterComponent,
         ShowErrorsComponent,
         ErrorComponent,
-        PasswordConfirmDirective,
         EmailValidatorDirective]
 })
 export class CommonComponentModule { }

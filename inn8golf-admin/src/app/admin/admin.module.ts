@@ -29,6 +29,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { AddUpdateComponent } from './users/add-update/add-update.component';
 import { AddUpdateAdminComponent } from './add-update-admin/add-update-admin.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AdminListComponent } from './admin-list/admin-list.component';
     CoursesComponent,
     AddUpdateComponent,
     AddUpdateAdminComponent,
-    AdminListComponent
+    AdminListComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
