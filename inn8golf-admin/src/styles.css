@@ -24,3 +24,10 @@
   .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
     border: 1px solid #FFF !important;
   }
+
+ label.required:after {
+    content: "*";
+    color: red;
+    vertical-align: top;
+    font-size: 14px;
+}
