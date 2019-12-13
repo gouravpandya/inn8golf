@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { DataTablesModule } from 'angular-datatables';
@@ -27,6 +27,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { UsersComponent } from './users/users.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AddUpdateComponent } from './users/add-update/add-update.component';
+import { AddUpdateAdminComponent } from './add-update-admin/add-update-admin.component';
+import { AdminListComponent } from './admin-list/admin-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { AddUpdateComponent } from './users/add-update/add-update.component';
     AlertConfigurationComponent,
     UsersComponent,
     CoursesComponent,
-    AddUpdateComponent
+    AddUpdateComponent,
+    AddUpdateAdminComponent,
+    AdminListComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,8 @@ import { AddUpdateComponent } from './users/add-update/add-update.component';
     NgMultiSelectDropDownModule.forRoot(),
     DataTablesModule,
     CalendarModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ReactiveFormsModule
 
   ],
   providers: [

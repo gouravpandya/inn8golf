@@ -1,32 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BuildingLevelComponent } from './building-level/building-level.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
-import { ZoneComponent } from './zone/zone.component';
-import { TenantComponent } from './tenant/tenant.component';
-import { DeviceComponent } from './device/device.component';
-import { EmployeeAttendanceComponent } from './employee/employee-attendance/employee-attendance.component';
-import { AlertConfigurationComponent } from './alert-configuration/alert-configuration.component';
 import { ErrorComponent } from '../common/error/error.component';
 import { UsersComponent } from './users/users.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AddUpdateComponent } from './users/add-update/add-update.component';
+import { AddUpdateAdminComponent } from './add-update-admin/add-update-admin.component';
+import { AdminListComponent } from './admin-list/admin-list.component';
 
 
 const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'building-level', component: BuildingLevelComponent },
-      { path: 'zone', component: ZoneComponent },
-      { path: 'tenant', component: TenantComponent },
-      { path: 'device', component: DeviceComponent },
-      { path: 'employee-attendance', component: EmployeeAttendanceComponent },
-      { path: 'alertConfiguration', component: AlertConfigurationComponent},
       { path: 'users', component: UsersComponent},
-      { path: 'user', component: AddUpdateComponent},
-      { path: 'user/:userId', component: AddUpdateComponent},
+      { path: 'update-user', component: AddUpdateComponent},
+      { path: 'update-user/:id', component: AddUpdateComponent},
+      { path: 'admin', component: AdminListComponent},
+      { path: 'add-admin', component: AddUpdateAdminComponent},
+      { path: 'update-admin/:id', component: AddUpdateAdminComponent},
       { path: 'courses', component: CoursesComponent},
       { path: '**', component: ErrorComponent},
     ]

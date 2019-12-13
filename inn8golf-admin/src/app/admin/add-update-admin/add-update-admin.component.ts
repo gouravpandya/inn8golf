@@ -3,39 +3,39 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-add-update',
-  templateUrl: './add-update.component.html',
-  styleUrls: ['./add-update.component.css']
+  selector: 'app-add-update-admin',
+  templateUrl: './add-update-admin.component.html',
+  styleUrls: ['./add-update-admin.component.css']
 })
-export class AddUpdateComponent implements OnInit {
-  user: FormGroup;
-  userId: number;
-
+export class AddUpdateAdminComponent implements OnInit {
+  adminForm: FormGroup;
+  adminId: number;
   constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.initForm();
-    this.getUserId();
+    this.getAdminId();
   }
 
   private initForm(): void {
-    this.user = this.fb.group({
+    this.adminForm = this.fb.group({
       name: ['', [Validators.required]],
       phone: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+      password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]]
     });
   }
 
-  addUser(): void {
-    console.log(this.user);
+  addAdmin(): void {
+    console.log(this.adminForm)
   }
 
-  getUserId(): void {
+  getAdminId(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.userId = params.id;
-      console.log(this.userId);
+      this.adminId = params.id;
+      console.log(this.adminId);
     });
   }
+
 }
