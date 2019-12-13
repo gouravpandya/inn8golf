@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
+import { MustMatch } from 'src/app/common/directives/password-confirm.directive';
+
 @Component({
   selector: 'app-add-update-admin',
   templateUrl: './add-update-admin.component.html',
@@ -22,8 +24,10 @@ export class AddUpdateAdminComponent implements OnInit {
       name: ['', [Validators.required]],
       phone: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
       confirmPassword: ['', [Validators.required]]
+    }, {
+      validator: MustMatch('password', 'confirmPassword')
     });
   }
 
