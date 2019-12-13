@@ -6,7 +6,7 @@ import { ErrorComponent } from '../common/error/error.component';
 import { UsersComponent } from './users/users.component';
 import { CoursesComponent } from './courses/courses.component';
 import { AddUpdateComponent } from './users/add-update/add-update.component';
-import { AddUpdateAdminComponent } from './add-update-admin/add-update-admin.component';
+import { AddUpdateAdminComponent } from './admin-list/add-update-admin/add-update-admin.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddUpdateCourseComponent } from './courses/add-update-course/add-update-course.component';
