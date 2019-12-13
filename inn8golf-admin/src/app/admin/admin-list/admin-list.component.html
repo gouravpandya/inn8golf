@@ -34,7 +34,7 @@
                                             data-toggle="tooltip" title="Edit Admin"
                                             routerLink="/admin/update-admin/1"><i class="fa fa-pencil"></i></button>
                                         <button type="button" class="btn btn-warning margin-right" data-toggle="modal"
-                                            data-target="#delete" data-widget="Active/Inactive" title="Active/Inactive"
+                                            data-target="#disabled" data-widget="Active/Inactive" title="Active/Inactive"
                                             (click)="disableAdmin()">
                                             <i class="fa fa-check"></i>
                                         </button>
@@ -55,43 +55,44 @@
     </div>
 </section>
 <div class="modal fade" id="delete">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-red">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Delete</h4>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-red">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure want to Delete?</p>
+                </div>
+                <div class="modal-footer center">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" (click)="deleteUser()">Yes</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Are you sure want to Delete?</p>
-            </div>
-            <div class="modal-footer center">
-                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary" (click)="deleteAdmin()">Yes</button>
-            </div>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
-
-<div class="modal fade" id="disabled">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-yellow">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Disable</h4>
+    
+    
+    <div class="modal fade" id="disabled">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-yellow">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Disable</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure want to Disable?</p>
+                </div>
+                <div class="modal-footer center">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" (click)="disableUser()">Yes</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Are you sure want to Disable?</p>
-            </div>
-            <div class="modal-footer center">
-                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary" (click)="disableAdmin()">Yes</button>
-            </div>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>

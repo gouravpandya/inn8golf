@@ -1,179 +1,111 @@
-<section class="content-header">
-  <h1>
-    {{courseId ? 'Update Course' : 'Add Course'}}
-  </h1>
-</section>
-
-<section class="content">
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#course-info" data-toggle="tab" aria-expanded="true">Course Info</a></li>
-          <li class=""><a href="#course-group" data-toggle="tab" aria-expanded="false">Course Group</a></li>
-          <li class=""><a href="#course-event" data-toggle="tab" aria-expanded="false">Course Events</a></li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="course-info">
-            <form class="form-horizontal">
-              <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputName" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputName" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                <div class="col-sm-10">
-                  <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-danger">Submit</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <!-- /.tab-pane -->
-          <div class="tab-pane" id="course-group">
-            <!-- The timeline -->
-            <ul class="products-list product-list-in-box">
-              <li class="item">
-                <div class="product-info">
-                  <a href="javascript:void(0)" class="product-title">Samsung TV
-                    <span class="label label-warning pull-right">$1800</span></a>
-                  <span class="product-description">
-                    Samsung 32" 1080p 60Hz LED Smart HDTV.
-                  </span>
-                </div>
-              </li>
-              <!-- /.item -->
-              <li class="item">
-                <div class="product-info">
-                  <a href="javascript:void(0)" class="product-title">Bicycle
-                    <span class="label label-info pull-right">$700</span></a>
-                  <span class="product-description">
-                    26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                  </span>
-                </div>
-              </li>
-              <!-- /.item -->
-              <li class="item">
-                <div class="product-info">
-                  <a href="javascript:void(0)" class="product-title">Xbox One <span
-                      class="label label-danger pull-right">$350</span></a>
-                  <span class="product-description">
-                    Xbox One Console Bundle with Halo Master Chief Collection.
-                  </span>
-                </div>
-              </li>
-              <!-- /.item -->
-              <li class="item">
-                <div class="product-info">
-                  <a href="javascript:void(0)" class="product-title">PlayStation 4
-                    <span class="label label-success pull-right">$399</span></a>
-                  <span class="product-description">
-                    PlayStation 4 500GB Console (PS4)
-                  </span>
-                </div>
-              </li>
-              <!-- /.item -->
-            </ul>
-          </div>
-          <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="course-event">
-            <form class="form-horizontal">
-              <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputName" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputName" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                <div class="col-sm-10">
-                  <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-danger">Submit</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <!-- /.tab-pane -->
+<div class="pad margin no-print">
+        <div class="callout callout-info" style="margin-bottom: 0!important;">
+            <h4><i class="fa fa-info"></i> Note:</h4>
+            All the fields marked with asterisk sign(*) are mandatory to be filled.
         </div>
-        <!-- /.tab-content -->
-      </div>
     </div>
-    <div class="col-md-2"></div>
-  </div>
-</section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> {{courseId ? 'Update Course' : 'Add Course'}}</h3>
+                    </div>
+                    <form [formGroup]="courseForm" class="form-horizontal">
+                        <div class="box-body">
+    
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label" requiredLabel>Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" formControlName="name" class="form-control" id="Name"
+                                        placeholder="Name">
+                                    <div
+                                        *ngIf="courseForm.controls['name'].invalid && (courseForm.controls['name'].touched || courseForm.controls['name'].dirty)">
+                                        <span class="text-danger" *ngIf="courseForm.controls['name'].errors.required">Name is
+                                            required</span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="phone" class="col-sm-2 control-label" requiredLabel>Phone</label>
+                                <div class="col-sm-6">
+                                    <input type="number" formControlName="phone" class="form-control" id="phone"
+                                        placeholder="phone">
+                                    <div
+                                        *ngIf="courseForm.controls['phone'].invalid && (courseForm.controls['phone'].touched || courseForm.controls['phone'].dirty)">
+                                        <span class="text-danger" *ngIf="courseForm.controls['phone'].errors.required">Phone
+                                            is
+                                            required</span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label" requiredLabel>Email</label>
+                                <div class="col-sm-6">
+                                    <input type="email" formControlName="email" class="form-control" id="email"
+                                        placeholder="Email" validateEmail>
+                                    <div
+                                        *ngIf="courseForm.controls['email'].invalid && (courseForm.controls['email'].touched || courseForm.controls['email'].dirty)">
+                                        <span class="text-danger" *ngIf="courseForm.controls['email'].errors.required">Email
+                                            is
+                                            required</span>
+                                        <span class="text-danger"
+                                            *ngIf="courseForm.controls['email'].hasError('validateEmail')">Email is not
+                                            valid</span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="password" class="col-sm-2 control-label" requiredLabel>Password</label>
+                                <div class="col-sm-6">
+                                    <input type="password" formControlName="password" class="form-control" id="password"
+                                        placeholder="Password">
+                                    <div
+                                        *ngIf="courseForm.controls['password'].errors && (courseForm.controls['password']?.touched || courseForm.controls['password']?.dirty)">
+                                        <span class="text-danger" *ngIf="courseForm.controls['password'].errors?.required">
+                                            Password is
+                                            required</span>
+                                        <span class="text-danger"
+                                            *ngIf="courseForm.controls['password']?.hasError('pattern')">
+                                            Password should be contains at least 1
+                                            lowercase, 1
+                                            uppercase alphabet, 1 numeric character & at least one
+                                            special character</span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="confirmPassword" class="col-sm-2 control-label" requiredLabel>Confirm Password</label>
+                                <div class="col-sm-6">
+                                    <input type="password" formControlName="confirmPassword" class="form-control"
+                                        id="Confirm" placeholder="Confirm password">
+                                    <div
+                                        *ngIf="courseForm.controls['confirmPassword'].errors && (courseForm.controls['confirmPassword']?.touched || courseForm.controls['confirmPassword']?.dirty)">
+                                        <span class="text-danger"
+                                            *ngIf="courseForm.controls['confirmPassword'].errors?.required">Confirm
+                                            password is required</span>
+                                        <span class="text-danger"
+                                            *ngIf="courseForm.controls['confirmPassword'].errors?.mustMatch">Password
+                                            doesn't match</span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-default pull-right"
+                                routerLink="/admin/courses">Cancel</button>
+                            <button type="submit" class="btn btn-info pull-right"
+                                (click)="addCourse()" [disabled]="courseForm.invalid">{{courseId ? 'Update' : 'Add'}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </section>

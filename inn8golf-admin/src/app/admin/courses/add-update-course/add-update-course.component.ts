@@ -28,7 +28,7 @@ export class AddUpdateCourseComponent implements OnInit {
   }
 
   addCourse(): void {
-    console.log(this.courseForm)
+    console.log(this.courseForm);
   }
 
   getAdminId(): void {
