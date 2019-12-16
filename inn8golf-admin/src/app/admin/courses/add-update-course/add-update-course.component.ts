@@ -51,6 +51,10 @@ export class AddUpdateCourseComponent implements OnInit {
     });
   }
 
+  onBasicUpload(file: any): void {
+    console.log(file);
+  }
+
   selectedCourse(): void {
   }
 

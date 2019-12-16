@@ -1,0 +1,95 @@
+<div class="pad margin no-print">
+    <div class="callout callout-info" style="margin-bottom: 0!important;">
+        <h4><i class="fa fa-info"></i> Note:</h4>
+        All the fields marked with asterisk sign(*) are mandatory to be filled.
+    </div>
+</div>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Course Group</h3>
+                </div>
+                <form #teeTimeForm="ngForm" class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="">
+                                <label class="col-sm-2 control-label" requiredLabel>Select Course</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" name="course" (change)="selectedCourse()"
+                                        [(ngModel)]="teeTimeScheduling.course">
+                                        <option value="">Select Course</option>
+                                        <option [value]="1">device 1</option>
+                                        <option [value]="2">device 2</option>
+                                        <option [value]="3">device 3</option>
+                                        <option [value]="4">device 4</option>
+                                        <option [value]="5">device 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="teeTimeScheduling?.course">
+                            <div class="form-group">
+                                <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="groupName" name="slotName"
+                                        [(ngModel)]="teeTimeScheduling.slotName" placeholder="Slot Name">
+                                    <!-- <div
+                                            *ngIf="user.controls['groupName'].invalid && user.controls['groupName'].touched && user.controls['groupName'].errors.required">
+                                            <span class="text-danger">Group Name is required</span>
+                                        </div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Date</label>
+                                <div class="col-sm-6">
+                                    <p-calendar name="slotDate" [(ngModel)]="teeTimeScheduling.slotDate"
+                                        [placeholder]="'mm/dd/yyyy'"></p-calendar>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Time</label>
+                                <div class="col-sm-6">
+                                    <p-calendar name="slotDate" (onSelect)="onSelect($event)" [timeOnly]="true"
+                                        [(ngModel)]="teeTimeScheduling.slotTime" [placeholder]="'hh:mm'"></p-calendar>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="">
+                                    <label class="col-sm-2 control-label" requiredLabel>No. Of Golfer</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="course" (change)="selectedGolfer()"
+                                            [(ngModel)]="teeTimeScheduling.noOfGolfer">
+                                            <option value="">Select Golfer</option>
+                                            <option [value]="1">1</option>
+                                            <option [value]="2"> 2</option>
+                                            <option [value]="3"> 3</option>
+                                            <option [value]="4"> 4</option>
+                                            <option [value]="5"> 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-info" (click)="submit()">Submit</button>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</section>
