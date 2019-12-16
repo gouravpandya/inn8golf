@@ -27,6 +27,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import {FileUploadModule} from 'primeng/fileupload';
 import { MultiSelectModule } from 'primeng/multiselect';
 import {EditorModule} from 'primeng/editor';
+import { TeeTimeSchedulingComponent } from './courses/tee-time-scheduling/tee-time-scheduling.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {EditorModule} from 'primeng/editor';
     AddUpdateCourseComponent,
     CourseGroupComponent,
     CourseEventComponent,
+    TeeTimeSchedulingComponent,
   ],
   imports: [
     CommonModule,
