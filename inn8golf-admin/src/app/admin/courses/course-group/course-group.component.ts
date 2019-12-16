@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-group.component.css']
 })
 export class CourseGroupComponent implements OnInit {
-  courseGroup = { course: '' }
+  courseGroup = { course: "" }
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+  constructor(){}
+
   ngOnInit() {
     this.dropdownList = [
       { "id": 1, "itemName": "India" },

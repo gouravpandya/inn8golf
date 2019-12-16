@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-event.component.css']
 })
 export class CourseEventComponent implements OnInit {
-  courseGroup = { course: '' }
+  courseEvent = { course: '' }
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};

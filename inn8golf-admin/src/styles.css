@@ -90,3 +90,17 @@ body .ui-datepicker table td.ui-datepicker-weekheader, body .ui-datepicker table
     background-color: #007ad9;
     border: 1px solid #007ad9;
 }
+
+.ui-fileupload-content.ui-widget-content.ui-corner-bottom{
+  background-color: #ffffff;
+  padding: 0em 1em;
+  border: 1px solid #c8c8c8;
+  color: #333333;
+}
+.ui-fileupload-buttonbar{
+  background-color: #f4f4f4;
+    padding: 0.571em 1em;
+    border: 1px solid #c8c8c8;
+    color: #333333;
+    border-bottom: 0 none;
+}

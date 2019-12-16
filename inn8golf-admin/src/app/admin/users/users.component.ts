@@ -38,6 +38,9 @@ export class UsersComponent implements OnInit, OnDestroy {
       pageLength: 5,
       paging: true,
       searching: true,
+      responsive: true,
+      lengthMenu: [5, 10, 15, 20, 25],
+      columnDefs: [{ "orderable": false, "targets": 3 }]
     };
     this.userList = [
       { name: 'sad', email: 'asdasd' },

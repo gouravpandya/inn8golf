@@ -56,4 +56,9 @@ export class AddUpdateCourseComponent implements OnInit {
 
   selectedRounds(): void {
   }
+
+  uploadHandler(event){
+    console.log(event)
+  }
+
 }

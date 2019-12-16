@@ -29,13 +29,6 @@ export class CoursesComponent implements OnInit, OnDestroy {
   }
 
   private initialize(): void {
-    this.dtOptions = {
-      pagingType: 'simple_numbers',
-      pageLength: 5,
-      paging: true,
-      searching: true,
-
-    };
     this.coursesList = [
       { name: 'sad', email: 'asdasd' },
       { name: 'sad', email: 'asdasd' },
@@ -58,6 +51,16 @@ export class CoursesComponent implements OnInit, OnDestroy {
       { name: 'sad', email: 'asdasd' },
       { name: 'sad', email: 'asdasd' },
     ];
+    this.dtOptions = {
+      pagingType: 'simple_numbers',
+      pageLength: 5,
+      paging: true,
+      searching: true,
+      responsive: true,
+      lengthMenu: [5, 10, 15, 20, 25],
+      columnDefs: [{ "orderable": false, "targets": 3 }]
+    };
+   
     this.dtTrigger.next();
 
   }

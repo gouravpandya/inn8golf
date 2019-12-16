@@ -13,15 +13,16 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Course Group</h3>
                 </div>
-                <form #courseGroup="ngForm" class="form-horizontal">
+                <form #courseGroupForm="ngForm" class="form-horizontal">
                     <div class="box-body">
+
                         <div class="form-group">
                             <div class="">
                                 <label class="col-sm-2 control-label" requiredLabel>Select Course</label>
                                 <div class="col-sm-6">
                                     <select class="form-control" name="course" (change)="selectedCourse()"
                                         [(ngModel)]="courseGroup.course">
-                                        <option [value]="">Select Course</option>
+                                        <option value="">Select Course</option>
                                         <option [value]="1">device 1</option>
                                         <option [value]="2">device 2</option>
                                         <option [value]="3">device 3</option>
