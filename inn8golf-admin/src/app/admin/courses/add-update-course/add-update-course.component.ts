@@ -10,20 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 export class AddUpdateCourseComponent implements OnInit {
   courseForm: FormGroup;
   courseId: number;
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit() {
+  maxDate: Date;
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute) {
     this.initForm();
     this.getAdminId();
+    const today = new Date();
+    this.maxDate = new Date(today.setDate(today.getDate() - 1));
+  }
+
+  ngOnInit() {
   }
 
   private initForm(): void {
     this.courseForm = this.fb.group({
-      name: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]]
+      courseName: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      image: [''],
+      noOfHoles: ['', [Validators.required]],
+      noOfRounds: ['', [Validators.required]],
+      par: [''],
+      holeDistance: [''],
+      green: [''],
+      fairways: [''],
+      season: [''],
+      builtYear: [''],
+      policies: [''],
+      services: [''],
+      instruction: [''],
     });
   }
 
@@ -36,5 +49,11 @@ export class AddUpdateCourseComponent implements OnInit {
       this.courseId = params.id;
       console.log(this.courseId);
     });
+  }
+
+  selectedCourse(): void {
+  }
+
+  selectedRounds(): void {
   }
 }

@@ -1,111 +1,253 @@
 <div class="pad margin no-print">
-        <div class="callout callout-info" style="margin-bottom: 0!important;">
-            <h4><i class="fa fa-info"></i> Note:</h4>
-            All the fields marked with asterisk sign(*) are mandatory to be filled.
-        </div>
+    <div class="callout callout-info" style="margin-bottom: 0!important;">
+        <h4><i class="fa fa-info"></i> Note:</h4>
+        All the fields marked with asterisk sign(*) are mandatory to be filled.
     </div>
-    <section class="content">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"> {{courseId ? 'Update Course' : 'Add Course'}}</h3>
-                    </div>
-                    <form [formGroup]="courseForm" class="form-horizontal">
-                        <div class="box-body">
-    
-                            <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label" requiredLabel>Name</label>
-                                <div class="col-sm-6">
-                                    <input type="text" formControlName="name" class="form-control" id="Name"
-                                        placeholder="Name">
-                                    <div
-                                        *ngIf="courseForm.controls['name'].invalid && (courseForm.controls['name'].touched || courseForm.controls['name'].dirty)">
-                                        <span class="text-danger" *ngIf="courseForm.controls['name'].errors.required">Name is
-                                            required</span>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="form-group">
-                                <label for="phone" class="col-sm-2 control-label" requiredLabel>Phone</label>
-                                <div class="col-sm-6">
-                                    <input type="number" formControlName="phone" class="form-control" id="phone"
-                                        placeholder="phone">
-                                    <div
-                                        *ngIf="courseForm.controls['phone'].invalid && (courseForm.controls['phone'].touched || courseForm.controls['phone'].dirty)">
-                                        <span class="text-danger" *ngIf="courseForm.controls['phone'].errors.required">Phone
-                                            is
-                                            required</span>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label" requiredLabel>Email</label>
-                                <div class="col-sm-6">
-                                    <input type="email" formControlName="email" class="form-control" id="email"
-                                        placeholder="Email" validateEmail>
-                                    <div
-                                        *ngIf="courseForm.controls['email'].invalid && (courseForm.controls['email'].touched || courseForm.controls['email'].dirty)">
-                                        <span class="text-danger" *ngIf="courseForm.controls['email'].errors.required">Email
-                                            is
-                                            required</span>
-                                        <span class="text-danger"
-                                            *ngIf="courseForm.controls['email'].hasError('validateEmail')">Email is not
-                                            valid</span>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="form-group">
-                                <label for="password" class="col-sm-2 control-label" requiredLabel>Password</label>
-                                <div class="col-sm-6">
-                                    <input type="password" formControlName="password" class="form-control" id="password"
-                                        placeholder="Password">
-                                    <div
-                                        *ngIf="courseForm.controls['password'].errors && (courseForm.controls['password']?.touched || courseForm.controls['password']?.dirty)">
-                                        <span class="text-danger" *ngIf="courseForm.controls['password'].errors?.required">
-                                            Password is
-                                            required</span>
-                                        <span class="text-danger"
-                                            *ngIf="courseForm.controls['password']?.hasError('pattern')">
-                                            Password should be contains at least 1
-                                            lowercase, 1
-                                            uppercase alphabet, 1 numeric character & at least one
-                                            special character</span>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="form-group">
-                                <label for="confirmPassword" class="col-sm-2 control-label" requiredLabel>Confirm Password</label>
-                                <div class="col-sm-6">
-                                    <input type="password" formControlName="confirmPassword" class="form-control"
-                                        id="Confirm" placeholder="Confirm password">
-                                    <div
-                                        *ngIf="courseForm.controls['confirmPassword'].errors && (courseForm.controls['confirmPassword']?.touched || courseForm.controls['confirmPassword']?.dirty)">
-                                        <span class="text-danger"
-                                            *ngIf="courseForm.controls['confirmPassword'].errors?.required">Confirm
-                                            password is required</span>
-                                        <span class="text-danger"
-                                            *ngIf="courseForm.controls['confirmPassword'].errors?.mustMatch">Password
-                                            doesn't match</span>
-                                    </div>
-                                </div>
-                            </div>
-    
-                        </div>
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-default pull-right"
-                                routerLink="/admin/courses">Cancel</button>
-                            <button type="submit" class="btn btn-info pull-right"
-                                (click)="addCourse()" [disabled]="courseForm.invalid">{{courseId ? 'Update' : 'Add'}}</button>
-                        </div>
-                    </form>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> {{courseId ? 'Update Course' : 'Add Course'}}</h3>
                 </div>
+                <form [formGroup]="courseForm" class="form-horizontal">
+                    <div class="box-body">
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label" requiredLabel>Course Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="courseName" class="form-control" id="Name"
+                                    placeholder="Course Name">
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <div
+                                    *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                    <span class="text-danger"
+                                        *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                        required</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label" requiredLabel>Description</label>
+                            <div class="col-sm-6">
+                                <!-- <input type="number"  class="form-control" id="phone"
+                                        placeholder="phone"> -->
+                                <textarea class="form-control" formControlName="description" rows="3"
+                                    placeholder="Course description"></textarea>
+                                <div
+                                    *ngIf="courseForm.controls['description'].invalid && (courseForm.controls['description'].touched || courseForm.controls['description'].dirty)">
+                                    <span class="text-danger"
+                                        *ngIf="courseForm.controls['description'].errors.required">description
+                                        is
+                                        required</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="inputEmail3" class="col-sm-2 control-label" requiredLabel>Course Image</label>
+                            <div class="col-sm-6">
+                                <!-- <input type="email" formControlName="image" class="form-control" id="email"
+                                        placeholder="Email" validateEmail> -->
+                                <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*"
+                                    maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
+                                <div class="box-body">
+                                    <img class="img-responsive pad" src="../../../../assets/img/download.jpg"
+                                        alt="Photo" width="100" height="100">
+                                </div>
+
+                                <!-- <div
+                                        *ngIf="courseForm.controls['image'].invalid && (courseForm.controls['image'].touched || courseForm.controls['image'].dirty)">
+                                        <span class="text-danger" *ngIf="courseForm.controls['image'].errors.required">image
+                                            is
+                                            required</span>
+                                        <span class="text-danger"
+                                            *ngIf="courseForm.controls['image'].hasError('validateEmail')">Email is not
+                                            valid</span>
+                                    </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label" requiredLabel>No. of holes</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" formControlName="noOfHoles" name="course"
+                                    (change)="selectedCourse()">
+                                    <option [value]=''>Select holes</option>
+                                    <option [value]="9">9</option>
+                                    <option [value]="18">18</option>
+                                </select>
+                                <div
+                                    *ngIf="courseForm.controls['noOfHoles'].errors && (courseForm.controls['noOfHoles']?.touched || courseForm.controls['noOfHoles']?.dirty)">
+                                    <span class="text-danger" *ngIf="courseForm.controls['noOfHoles'].errors?.required">
+                                        No. of holes is
+                                        required</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label" requiredLabel>No. of rounds</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" formControlName="noOfRounds" name="rounds"
+                                    (change)="selectedRounds()">
+                                    <option [value]=''>Select rounds</option>
+                                    <option [value]="1">1</option>
+                                    <option [value]="2">2</option>
+                                </select>
+                                <div
+                                    *ngIf="courseForm.controls['noOfRounds'].errors && (courseForm.controls['noOfRounds']?.touched || courseForm.controls['noOfRounds']?.dirty)">
+                                    <span class="text-danger"
+                                        *ngIf="courseForm.controls['noOfRounds'].errors?.required">
+                                        No. of rounds is
+                                        required</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Par (No of strokes)</label>
+                            <div class="col-sm-6">
+                                <input type="number" formControlName="par" class="form-control" id="Name"
+                                    placeholder="Par">
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <!-- <div
+                                            *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                            <span class="text-danger"
+                                                *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                                required</span>
+                                        </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Hole Distance (Yard)</label>
+                            <div class="col-sm-6">
+                                <input type="number" formControlName="holeDistance" class="form-control" id="Name"
+                                    placeholder="Hole Distance">
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <!-- <div
+                                                *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                                <span class="text-danger"
+                                                    *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                                    required</span>
+                                            </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Green</label>
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="green" class="form-control" id="Name"
+                                    placeholder="Green type">
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <!-- <div
+                                                    *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                                    <span class="text-danger"
+                                                        *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                                        required</span>
+                                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Fairways</label>
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="fairways" class="form-control" id="Name"
+                                    placeholder="Fairways">
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <!-- <div
+                                                        *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                                        <span class="text-danger"
+                                                            *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                                            required</span>
+                                                    </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Season</label>
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="season" class="form-control" id="Name"
+                                    placeholder="Season">
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <!-- <div
+                                                            *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                                            <span class="text-danger"
+                                                                *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                                                required</span>
+                                                        </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Built Year</label>
+                            <div class="col-sm-6">
+                                <p-calendar formControlName="builtYear" [placeholder]="'Built Year'"
+                                    [maxDate]="maxDate"></p-calendar>
+                                <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+                                <!-- <div
+                                                                *ngIf="courseForm.controls['courseName'].invalid && (courseForm.controls['courseName'].touched || courseForm.controls['courseName'].dirty)">
+                                                                <span class="text-danger"
+                                                                    *ngIf="courseForm.controls['courseName'].errors.required">Course name is
+                                                                    required</span>
+                                                            </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">Policies</label>
+                                <div class="col-sm-6">
+                                        <p-editor formControlName="policies" [style]="{'height':'100px'}"></p-editor>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label">Rentals/Services</label>
+                                    <div class="col-sm-6">
+                                            <p-editor formControlName="services" [style]="{'height':'100px'}"></p-editor>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="name" class="col-sm-2 control-label">Practice/Instruction</label>
+                                        <div class="col-sm-6">
+                                                <p-editor formControlName="instruction" [style]="{'height':'100px'}"></p-editor>
+                                        </div>
+                                    </div>
+
+                        <!-- <div class="form-group">
+                            <label for="confirmPassword" class="col-sm-2 control-label" requiredLabel>Confirm
+                                Password</label>
+                            <div class="col-sm-6">
+                                <input type="password" formControlName="confirmPassword" class="form-control"
+                                    id="Confirm" placeholder="Confirm password">
+                                <div
+                                    *ngIf="courseForm.controls['confirmPassword'].errors && (courseForm.controls['confirmPassword']?.touched || courseForm.controls['confirmPassword']?.dirty)">
+                                    <span class="text-danger"
+                                        *ngIf="courseForm.controls['confirmPassword'].errors?.required">Confirm
+                                        password is required</span>
+                                    <span class="text-danger"
+                                        *ngIf="courseForm.controls['confirmPassword'].errors?.mustMatch">Password
+                                        doesn't match</span>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-default pull-right"
+                            routerLink="/admin/courses">Cancel</button>
+                        <button type="submit" class="btn btn-info pull-right" (click)="addCourse()"
+                            [disabled]="courseForm.invalid">{{courseId ? 'Update' : 'Add'}}</button>
+                    </div>
+                </form>
             </div>
-            <div class="col-md-2"></div>
         </div>
-    </section>
+        <div class="col-md-2"></div>
+    </div>
+</section>

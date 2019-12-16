@@ -26,6 +26,7 @@ import { CourseEventComponent } from './courses/course-event/course-event.compon
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import {FileUploadModule} from 'primeng/fileupload';
 import { MultiSelectModule } from 'primeng/multiselect';
+import {EditorModule} from 'primeng/editor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ReactiveFormsModule,
     AngularMultiSelectModule,
     FileUploadModule,
-    MultiSelectModule
+    MultiSelectModule,
+    EditorModule
   ],
   providers: []
 })

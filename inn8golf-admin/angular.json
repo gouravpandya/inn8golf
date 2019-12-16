@@ -27,7 +27,9 @@
               "src/styles.css",
               "node_modules/sweetalert2/dist/sweetalert2.min.css",
               "src/assets/css/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
+              "node_modules/quill/dist/quill.core.css", 
+              "node_modules/quill/dist/quill.snow.css"
             ],
             "scripts": [
               "node_modules/primeicons/primeicons.css",
@@ -39,7 +41,8 @@
               "node_modules/datatables.net/js/jquery.dataTables.js",
             
               "src/assets/css/bower_components/datatables.net/js/jquery.dataTables.min.js",
-              "src/assets/css/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"
+              "src/assets/css/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js",
+              "node_modules/quill/dist/quill.js"
             ]
           },
           "configurations": {
