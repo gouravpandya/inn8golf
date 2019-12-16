@@ -13,7 +13,6 @@ import { AdminComponent } from './admin.component';
 import { GridsterModule } from 'angular-gridster2';
 import { HttpClientModule } from '@angular/common/http';
 import { ZoneService } from './zone/zone.service';
-import { AlertConfigurationComponent } from './alert-configuration/alert-configuration.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { UsersComponent } from './users/users.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -25,13 +24,13 @@ import { AddUpdateCourseComponent } from './courses/add-update-course/add-update
 import { CourseGroupComponent } from './courses/course-group/course-group.component';
 import { CourseEventComponent } from './courses/course-event/course-event.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
     ZoneComponent,
     AdminComponent,
     DashboardComponent,
-    AlertConfigurationComponent,
     UsersComponent,
     CoursesComponent,
     AddUpdateComponent,
@@ -54,7 +53,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     CalendarModule,
     ProgressSpinnerModule,
     ReactiveFormsModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    MultiSelectModule,
   ],
   providers: []
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin',
@@ -63,14 +64,54 @@ export class AdminListComponent implements OnInit, OnDestroy {
   }
 
   deleteAdmin(): void {
-    this.modalMessage = 'Are you sure you want to delete Admin ?';
-    this.modalTitle = 'Confirmation';
+    Swal.fire({
+      title: 'Are you sure?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Swal.fire(
+        //   'Cancelled',
+        //   'Your record is safe :)',
+        //   'error'
+        // )
+      }
+    });
   }
 
   modalClose(): void {
   }
 
   disableAdmin(): void {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, disable it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Disabled!',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Swal.fire(
+        //   'Cancelled',
+        //   'Your record is safe :)',
+        //   'error'
+        // )
+      }
+    });
   }
 
   private handleError(errorCode: number): void {
