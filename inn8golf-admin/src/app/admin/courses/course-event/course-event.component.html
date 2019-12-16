@@ -62,15 +62,13 @@
                                     <label requiredLabel class="col-sm-2 control-label">Start - End Date</label>
                                     <div class="col-sm-6">
                                         <div class="input-group">
-                                            <div class="input-group-addon">
+                                            <div class="input-group-addon" (click)="cal.toggle()">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <p-calendar monthNavigator="true" yearNavigator="true" yearrange="2000:2030"
-                                                showIcon="true" icon="fa fa-calendar" name="renge"
-                                                [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
-                                                >
+                                            <p-calendar monthNavigator="true" yearNavigator="true" yearRange="2000:2020"
+                                                name="renge" [(ngModel)]="rangeDates" selectionMode="range"
+                                                [readonlyInput]="true" #cal>
                                             </p-calendar>
-                                            <!-- <input type="text" class="form-control pull-right" id="reservation"> -->
                                         </div>
                                     </div>
                                 </div>

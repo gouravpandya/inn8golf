@@ -81,3 +81,12 @@ body .ui-datepicker table td.ui-datepicker-today > a, body .ui-datepicker table 
 body .ui-datepicker table td.ui-datepicker-weekheader, body .ui-datepicker table td.ui-datepicker-weeknumber {
   border-right: 1px solid #a6a6a6;
 }
+.ui-calendar, .ui-inputtext{
+  width: 100%;
+}
+
+.ui-fileupload-choose{
+  color: #ffffff;
+    background-color: #007ad9;
+    border: 1px solid #007ad9;
+}
