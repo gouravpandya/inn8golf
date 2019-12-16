@@ -25,6 +25,7 @@ import { AddUpdateCourseComponent } from './courses/add-update-course/add-update
 import { CourseGroupComponent } from './courses/course-group/course-group.component';
 import { CourseEventComponent } from './courses/course-event/course-event.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     CalendarModule,
     ProgressSpinnerModule,
     ReactiveFormsModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    FileUploadModule
   ],
   providers: []
 })
