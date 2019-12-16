@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MustMatch } from 'src/app/common/directives/password-confirm.directive';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-profile',
@@ -47,6 +48,26 @@ export class ProfileComponent implements OnInit {
     if (this.changePassword.invalid) {
       return;
     }
-    console.log(this.changePassword);
+    Swal.fire({
+      title: 'Password changed successfully!',
+      text: '',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'Okay!',
+      // cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        // Swal.fire(
+        //   'Deleted!',
+        //   'success'
+        // )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Swal.fire(
+        //   'Cancelled',
+        //   'Your record is safe :)',
+        //   'error'
+        // )
+      }
+    });
   }
 }

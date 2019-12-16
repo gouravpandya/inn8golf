@@ -13,7 +13,6 @@ import { AdminComponent } from './admin.component';
 import { GridsterModule } from 'angular-gridster2';
 import { HttpClientModule } from '@angular/common/http';
 import { ZoneService } from './zone/zone.service';
-import { AlertConfigurationComponent } from './alert-configuration/alert-configuration.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { UsersComponent } from './users/users.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -26,13 +25,13 @@ import { CourseGroupComponent } from './courses/course-group/course-group.compon
 import { CourseEventComponent } from './courses/course-event/course-event.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import {FileUploadModule} from 'primeng/fileupload';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
     ZoneComponent,
     AdminComponent,
     DashboardComponent,
-    AlertConfigurationComponent,
     UsersComponent,
     CoursesComponent,
     AddUpdateComponent,
@@ -56,7 +55,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     ProgressSpinnerModule,
     ReactiveFormsModule,
     AngularMultiSelectModule,
-    FileUploadModule
+    FileUploadModule,
+    MultiSelectModule
   ],
   providers: []
 })
