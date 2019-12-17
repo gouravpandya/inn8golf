@@ -9,7 +9,7 @@ export class TeeTimeScheduling {
         this.slotName = null;
         this.slotDate = null;
         this.slotTime = null;
-        this.course = '';
-        this.noOfGolfer = 0;
+        this.course = null;
+        this.noOfGolfer = null;
     }
 }

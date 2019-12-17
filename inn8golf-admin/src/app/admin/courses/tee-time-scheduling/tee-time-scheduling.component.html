@@ -22,11 +22,11 @@
                                     <select class="form-control" name="course" (change)="selectedCourse()"
                                         [(ngModel)]="teeTimeScheduling.course">
                                         <option value="">Select Course</option>
-                                        <option [value]="1">device 1</option>
-                                        <option [value]="2">device 2</option>
-                                        <option [value]="3">device 3</option>
-                                        <option [value]="4">device 4</option>
-                                        <option [value]="5">device 5</option>
+                                        <option [value]="1">Course 1</option>
+                                        <option [value]="2">Course 2</option>
+                                        <option [value]="3">Course 3</option>
+                                        <option [value]="4">Course 4</option>
+                                        <option [value]="5">Course 5</option>
                                     </select>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="groupName" name="slotName"
+                                    <input type="text" class="form-control" id="slotName" name="slotName"
                                         [(ngModel)]="teeTimeScheduling.slotName" placeholder="Slot Name">
                                     <!-- <div
                                             *ngIf="user.controls['groupName'].invalid && user.controls['groupName'].touched && user.controls['groupName'].errors.required">
@@ -45,18 +45,23 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Date</label>
+                                <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Date {{teeTimeForm.controls['slotDate'].invalid}}</label>
                                 <div class="col-sm-6">
                                     <p-calendar name="slotDate" [(ngModel)]="teeTimeScheduling.slotDate"
-                                        [placeholder]="'mm/dd/yyyy'"></p-calendar>
+                                        [placeholder]="'mm/dd/yyyy'"  ></p-calendar>
+                                    <div
+                                        *ngIf="teeTimeForm.controls['slotDate']?.invalid && (teeTimeForm.controls['slotDate'].touched || teeTimeForm.controls['slotDate'].dirty)">
+                                        <span class="text-danger"
+                                            *ngIf="teeTimeForm.controls['slotDate'].errors.required">Slot Date is
+                                            required</span>
+                                    </div>
                                 </div>
                             </div>
-
 
                             <div class="form-group">
                                 <label for="groupName" requiredLabel class="col-sm-2 control-label">Slot Time</label>
                                 <div class="col-sm-6">
-                                    <p-calendar name="slotDate" (onSelect)="onSelect($event)" [timeOnly]="true"
+                                    <p-calendar name="slotTime" (onSelect)="onSelect($event)" [timeOnly]="true"
                                         [(ngModel)]="teeTimeScheduling.slotTime" [placeholder]="'hh:mm'"></p-calendar>
                                 </div>
                             </div>
@@ -65,15 +70,8 @@
                                 <div class="">
                                     <label class="col-sm-2 control-label" requiredLabel>No. Of Golfer</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control" name="course" (change)="selectedGolfer()"
-                                            [(ngModel)]="teeTimeScheduling.noOfGolfer">
-                                            <option value="">Select Golfer</option>
-                                            <option [value]="1">1</option>
-                                            <option [value]="2"> 2</option>
-                                            <option [value]="3"> 3</option>
-                                            <option [value]="4"> 4</option>
-                                            <option [value]="5"> 5</option>
-                                        </select>
+                                        <input type="number" [(ngModel)]="teeTimeScheduling.noOfGolfer"
+                                            name="noOfGolfer" class="form-control" id="Name" placeholder="No. of golfer">
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +79,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-info" (click)="submit()">Submit</button>
+                                    <button type="submit" class="btn btn-info" (click)="submit(teeTimeForm)">Submit</button>
                                 </div>
                             </div>
                         </ng-container>

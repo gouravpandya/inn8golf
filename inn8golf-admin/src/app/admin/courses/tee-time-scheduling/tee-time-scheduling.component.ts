@@ -31,7 +31,7 @@ export class TeeTimeSchedulingComponent implements OnInit {
     }
   }
 
-  submit(): void {
-    console.log(this.teeTimeScheduling)
+  submit(form): void {
+    console.log(this.teeTimeScheduling, form)
   }
 }
